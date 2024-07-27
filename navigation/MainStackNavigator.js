@@ -6,6 +6,8 @@ import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen'; // Create a dummy HomeScreen for now
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DiaryScreen from '../screens/DiaryScreen';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -31,8 +33,9 @@ const MainStackNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={isAuthenticated ? 'Home' : 'Login'}>
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Diary" component={DiaryScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

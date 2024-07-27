@@ -4,6 +4,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IncomeController;
@@ -84,5 +85,5 @@ Route::apiResource('attendance', AttendanceController::class);
 
 Route::get("start-server", [Controller::class, "startServer"]);
 
-
+Route::apiResource('diary', DiaryController::class)->middleware('auth:sanctum');
 // Route::resource('login', LoginController::class);

@@ -19,13 +19,15 @@ const LoginScreen = ({ navigation }) => {
         email,
         password,
       };
-      const { data } = await axios.post(`${BASE_URL}/login`, payload);
+      const { data } = await axios.post(`https://45a6-2001-8f8-1f10-5156-f131-44b3-b650-1afc.ngrok-free.app/api/login`, payload);
 
       if (data) {
         // Handle successful login (e.g., navigate to another screen, store token)
         await AsyncStorage.setItem("token", data);
 
-        navigation.navigate("Home"); // Example navigation
+        setError("");
+
+        navigation.navigate("Diary"); // Example navigation
       } else {
         setError(response.data.message);
       }
